@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敦煌卡牌策划案</title>
+    
+    <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Basic styling for smooth transitions and modern scrollbars */
+        :root {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Webkit scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.5); /* gray-400 with 50% opacity */
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: rgba(75, 85, 99, 0.5); /* gray-600 with 50% opacity */
+        }
+        
+        /* Fade-in animation on load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        /* Ensuring table cells have vertical alignment */
+        .custom-table th, .custom-table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+    <div id="app-container" class="fade-in">
+        <header class="sticky top-0 z-30 w-full bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">敦煌卡牌策划案</h1>
+                    <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                        <i class="fa-solid fa-sun" id="theme-icon-light"></i>
+                        <i class="fa-solid fa-moon" id="theme-icon-dark"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="space-y-16">
+
+                <section id="competitor-analysis">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">竞品分析</h2>
+                    <div class="overflow-x-auto bg-white dark:bg-slate-800/50 rounded-lg shadow-md border border-slate-200 dark:border-slate-700">
+                        <table class="w-full text-sm text-left text-slate-600 dark:text-slate-300 custom-table">
+                            <thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-100 dark:bg-slate-800">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">品牌</th>
+                                    <th scope="col" class="px-6 py-4">目标人群</th>
+                                    <th scope="col" class="px-6 py-4">档位/SKU</th>
+                                    <th scope="col" class="px-6 py-4">规格</th>
+                                    <th scope="col" class="px-6 py-4">官方定价</th>
+                                    <th scope="col" class="px-6 py-4">核心卖点</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">大英图书馆-奇幻童梦卡牌</td>
+                                    <td class="px-6 py-4">卡牌爱好者、复古爱好者、童话爱好者</td>
+                                    <td class="px-6 py-4">12档, 216款</td>
+                                    <td class="px-6 py-4">5张/包, 10包/盒</td>
+                                    <td class="px-6 py-4">238元/盒</td>
+                                    <td class="px-6 py-4">1.包装独特<br>2.以童话为主线<br>3.每盒有非常多赠品</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">三星堆博物馆纪念卡牌</td>
+                                    <td class="px-6 py-4">卡牌爱好者、历史爱好者</td>
+                                    <td class="px-6 py-4">12档, 228款</td>
+                                    <td class="px-6 py-4">2张/包, 5包/盒</td>
+                                    <td class="px-6 py-4">99元/盒</td>
+                                    <td class="px-6 py-4">1.特殊工艺: 实物镶嵌卡<br>2.文物详细解说</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">敦煌画院-敦煌集换式典藏卡</td>
+                                    <td class="px-6 py-4">卡牌爱好者、历史爱好者</td>
+                                    <td class="px-6 py-4">7档, 105款</td>
+                                    <td class="px-6 py-4">5张/包, 15包/盒, 6盒/箱</td>
+                                    <td class="px-6 py-4">85元/盒</td>
+                                    <td class="px-6 py-4">1.敦煌IP<br>2.AR技术</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">敦煌博物馆-海外遗失物丝路手信</td>
+                                    <td class="px-6 py-4">卡牌爱好者、历史爱好者、收藏家</td>
+                                    <td class="px-6 py-4">13档, 241款</td>
+                                    <td class="px-6 py-4">2盒/大盒</td>
+                                    <td class="px-6 py-4">999元/大盒</td>
+                                    <td class="px-6 py-4">1.以社会热点为主题<br>2.特殊材质: 金卡、仿木卡<br>3.专家背书</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">故宫文化-兔年特辑</td>
+                                    <td class="px-6 py-4">卡牌爱好者、历史爱好者、收藏家</td>
+                                    <td class="px-6 py-4">17档, 425款</td>
+                                    <td class="px-6 py-4">5张/包, 5包/盒, 一箱有三盒(1盒珍藏, 2盒普卡)</td>
+                                    <td class="px-6 py-4">323元/盒</td>
+                                    <td class="px-6 py-4">1.卡牌和新年联动, 迎合祈福经济<br>2.以兔子为主题<br>3.稀有工艺: 实体镶嵌卡</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">传世系列 故宫经典收藏卡</td>
+                                    <td class="px-6 py-4">高端工艺收藏家、传统手工艺爱好者、企业级礼赠</td>
+                                    <td class="px-6 py-4">13档, 241款</td>
+                                    <td class="px-6 py-4">20张/盒, 4盒/箱</td>
+                                    <td class="px-6 py-4">6990元/盒, 限量300盒</td>
+                                    <td class="px-6 py-4">1.稀有工艺: 实体镶嵌卡<br>2.极为稀有, 收藏价值高<br>3.专家背书</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <section id="analysis-conclusion">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">市场分析</h3>
+                             <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-chart-line text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>价格:</strong> 部分文旅卡牌正在尝试走高价路线，定价高于199元/盒，极少数卡牌价位达到四位数。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-gem text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>工艺:</strong> 追求稀有工艺，同时也利用AR等现代技术。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-handshake text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>联名:</strong> 寻求学者、工艺大师、博物馆馆长背书，提升卡牌价值。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-bullhorn text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>主题:</strong> 主题与社会热点联动，比如海外文物、祈福经济。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-users text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>目标人群:</strong> 主要针对卡牌爱好者和历史爱好者。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-book-open-reader text-sky-500 mt-1 mr-3"></i>
+                                    <span><strong>内容:</strong> 对文物进行详细解说，起到科普价值。 </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">核心结论</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-dollar-sign text-emerald-500 mt-1 mr-3"></i>
+                                    <span><strong>价值提升:</strong> 可以通过添加稀有工艺、现代技术、专家联名、添加更多赠品等方式来增加卡牌价值，从而提高整体单价。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-lightbulb text-emerald-500 mt-1 mr-3"></i>
+                                    <span><strong>内容为王:</strong> 卡牌内容要起到科普作用。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-fire text-emerald-500 mt-1 mr-3"></i>
+                                    <span><strong>紧跟热点:</strong> 可适当结合社会热点。 </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-user-group text-emerald-500 mt-1 mr-3"></i>
+                                    <span><strong>拓宽受众:</strong> 文旅卡牌带有科普作用，可适当向普通游客、有教育需求的家庭扩展。 </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="product-line">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-8 text-center">产品规划</h2>
+                    
+                    <div class="bg-white dark:bg-slate-800/50 p-6 sm:p-8 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-sky-500/50 dark:hover:border-sky-500/30 transition-all duration-300 transform hover:-translate-y-1 mb-12">
+                        <span class="inline-block bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-sm font-medium px-3 py-1 rounded-full mb-3">系列一</span>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">《敦煌：考古手札》</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">玩家扮演考古学家，通过收藏卡牌探索莫高窟壁画和彩塑背后的故事。  分期推出：第一期“佛影篇”，第二期“唐韵篇”。 </p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6 text-center">
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">SKU数量</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">10卡种, 157卡面 </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">预估零售价</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">199元/盒 </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">产品规格</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">3张/包, 10包/盒 </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">卡牌尺寸</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">88x63mm </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+                            <div><strong class="font-semibold text-slate-800 dark:text-slate-100">包装形式:</strong> 盲盒。  外盒为赭石色，有壁画肌理感；内盒为华丽壁画，形成强烈反差。 </div>
+                            <div><strong class="font-semibold text-slate-800 dark:text-slate-100">随箱礼品:</strong> 版画、卡册、涂色卷轴套装、冰箱贴。 </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4">卡牌配置 (第一期“佛影篇”)</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-slate-600 dark:text-slate-300 custom-table">
+                                <thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-100 dark:bg-slate-800">
+                                    <tr>
+                                        <th scope="col" class="px-5 py-3">卡种</th>
+                                        <th scope="col" class="px-5 py-3">数量</th>
+                                        <th scope="col" class="px-5 py-3">卡面内容 + 文案内容</th>
+                                        <th scope="col" class="px-5 py-3">图片素材</th>
+                                        <th scope="col" class="px-5 py-3">材质</th>
+                                        <th scope="col" class="px-5 py-3">工艺/产品形式</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-slate-800/50 divide-y divide-slate-200 dark:divide-slate-700">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">岩彩-镶嵌卡</td>
+                                        <td class="px-5 py-4">5 (限编)</td>
+                                        <td class="px-5 py-4">介绍壁画中常用的颜料来源及其象征意义</td>
+                                        <td class="px-5 py-4">与颜色对应的著名壁画局部手绘稿</td>
+                                        <td class="px-5 py-4">特种纸+裱+岩彩颜料</td>
+                                        <td class="px-5 py-4">卡牌中间镶嵌一块涂有岩彩的纸张（或色、激光切割、裱岩彩纸）</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">彩塑-镶嵌卡</td>
+                                        <td class="px-5 py-4">7 (限编)</td>
+                                        <td class="px-5 py-4">介绍每个朝代佛像的典型造型、服饰与彩绘特征</td>
+                                        <td class="px-5 py-4">与朝代对应的标志性佛像手绘稿</td>
+                                        <td class="px-5 py-4">特种纸对裱</td>
+                                        <td class="px-5 py-4">浮雕烫色、激光切割</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">壁画折页卡</td>
+                                        <td class="px-5 py-4">10 (限编)</td>
+                                        <td class="px-5 py-4">介绍壁画所属洞窟、年代，讲述的故事以及文化亮点</td>
+                                        <td class="px-5 py-4">艺术成就最突出、最著名的壁画的高清实拍图（比如九色鹿本生、萨埵太子舍身饲虎）</td>
+                                        <td class="px-5 py-4">特种纸对裱</td>
+                                        <td class="px-5 py-4">折页卡（两折卡或三折卡）</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">绢画-镶嵌卡</td>
+                                        <td class="px-5 py-4">9 (限编)</td>
+                                        <td class="px-5 py-4">展示绢画佛像中常见元素、手势，饰品并解释其含义</td>
+                                        <td class="px-5 py-4">局部元素的手绘稿</td>
+                                        <td class="px-5 py-4">特种纸对裱、绢布</td>
+                                        <td class="px-5 py-4">卡牌中间镶嵌一块印有图案的绢布（烫色、激光切割、裱绢布）</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">飞天卡</td>
+                                        <td class="px-5 py-4">12</td>
+                                        <td class="px-5 py-4">呈现飞天乐舞，古乐器，解析舞姿及含义用AR形式赋予动态</td>
+                                        <td class="px-5 py-4">飞天舞姿壁画高清实拍图</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱</td>
+                                        <td class="px-5 py-4">AR、烫色、抗光UV、击凹、辐射底</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">藻井图案卡</td>
+                                        <td class="px-5 py-4">18</td>
+                                        <td class="px-5 py-4">解析代表性藻井纹样的构图与吉祥寓意</td>
+                                        <td class="px-5 py-4">藻井的高清实拍图+线稿图</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱</td>
+                                        <td class="px-5 py-4">烫色、抗光UV、击凹、辐射底</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">佛像人物卡</td>
+                                        <td class="px-5 py-4">24</td>
+                                        <td class="px-5 py-4">壁画中的佛、菩萨、飞天、力士等人物介绍</td>
+                                        <td class="px-5 py-4">佛像高清实拍图</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱</td>
+                                        <td class="px-5 py-4">烫色、逆向UV、辐射底</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">修复对比卡</td>
+                                        <td class="px-5 py-4">12</td>
+                                        <td class="px-5 py-4">对比壁画、彩塑修复前后色彩变化</td>
+                                        <td class="px-5 py-4">修复前后的壁画和佛像对比照片（或者ps后的照片）</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱</td>
+                                        <td class="px-5 py-4">撕拉卡</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">文物珍藏卡</td>
+                                        <td class="px-5 py-4">24</td>
+                                        <td class="px-5 py-4">简短介绍文物名称，并标注洞号、朝代</td>
+                                        <td class="px-5 py-4">壁画、绢画、彩塑、经书高清实拍图</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱覆哑膜</td>
+                                        <td class="px-5 py-4">烫金</td>
+                                    </tr>
+                                     <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">洞窟场景卡</td>
+                                        <td class="px-5 py-4">36</td>
+                                        <td class="px-5 py-4">展示著名洞窟外景与内部全景，并标注洞号、朝代</td>
+                                        <td class="px-5 py-4">著名洞窟实拍图、外景图</td>
+                                        <td class="px-5 py-4">250g铜版纸对裱覆哑膜</td>
+                                        <td class="px-5 py-4">烫银</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 mt-8">差异化卖点</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+                            <div class="border-l-4 border-sky-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">多感官材质更具收藏价值</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">不仅能让玩家从更多维度感受敦煌文化，而且比普通收藏卡更具收藏价值。 </p>
+                            </div>
+                             <div class="border-l-4 border-sky-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">贯穿始终的故事线增强收藏动力</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">玩家通过收集卡牌来逐步揭开敦煌文化的面纱，促使玩家主动寻卡。 </p>
+                            </div>
+                             <div class="border-l-4 border-sky-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">包装反差更具礼品属性</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">简约的外部与华丽的内部形成反差，带来更多惊喜。 </p>
+                            </div>
+                             <div class="border-l-4 border-sky-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">体系化内容更具科普价值</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">体系化的多媒体内容可吸引历史爱好者和有科普需求的家庭，扩大受众。 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-slate-800/50 p-6 sm:p-8 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:border-amber-500/50 dark:hover:border-amber-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                        <span class="inline-block bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 text-sm font-medium px-3 py-1 rounded-full mb-3">系列二</span>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">《敦煌：瑞光迎岁 (新年收藏版)》</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">以新年为主题，迎合目前的祈福文创趋势，集合敦煌石窟中的祥瑞元素，给玩家带来新年祝福。 </p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6 text-center">
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">SKU数量</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">4卡种, 20卡面 </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">预估零售价</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">238元/盒 </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">产品规格</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">3包/盒 (1特+2普) </div>
+                            </div>
+                            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+                                <div class="text-sm text-slate-500 dark:text-slate-400">卡牌尺寸</div>
+                                <div class="text-lg font-semibold text-slate-900 dark:text-white">普卡88x63, 特典100x100mm </div>
+                            </div>
+                        </div>
+
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-8">
+                            <div><strong class="font-semibold text-slate-800 dark:text-slate-100">包装形式:</strong> 天地盒，红金主色调，分层设计。 </div>
+                            <div><strong class="font-semibold text-slate-800 dark:text-slate-100">每盒内含:</strong> 泥版画、赐福手串、香囊、红包、卡套。 </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4">卡牌配置</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-slate-600 dark:text-slate-300 custom-table">
+                                <thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-100 dark:bg-slate-800">
+                                    <tr>
+                                        <th scope="col" class="px-5 py-3">卡种</th>
+                                        <th scope="col" class="px-5 py-3">数量</th>
+                                        <th scope="col" class="px-5 py-3">卡面内容 + 文案内容</th>
+                                        <th scope="col" class="px-5 py-3">图片素材</th>
+                                        <th scope="col" class="px-5 py-3">材质</th>
+                                        <th scope="col" class="px-5 py-3">工艺/产品形式</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-slate-800/50 divide-y divide-slate-200 dark:divide-slate-700">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">瑞兽特典卡</td>
+                                        <td class="px-5 py-4">4</td>
+                                        <td class="px-5 py-4">九色鹿、青鸟、三兔共耳、大象等有吉祥寓意的动物，文案介绍相关寓意</td>
+                                        <td class="px-5 py-4">高清实拍图</td>
+                                        <td class="px-5 py-4">特种纸裱灰板</td>
+                                        <td class="px-5 py-4">浮雕烫色、刷边</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">吉祥人物卡</td>
+                                        <td class="px-5 py-4">6</td>
+                                        <td class="px-5 py-4">飞天、观音、善财童子等有吉祥寓意的人物，文案介绍相关寓意</td>
+                                        <td class="px-5 py-4">高清实拍图</td>
+                                        <td class="px-5 py-4">铜版纸对裱</td>
+                                        <td class="px-5 py-4">烫色、镭射底、逆向UV</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">吉祥花纹卡</td>
+                                        <td class="px-5 py-4">5</td>
+                                        <td class="px-5 py-4">莲花纹、火焰纹等有吉祥寓意的花纹，文案介绍相关寓意</td>
+                                        <td class="px-5 py-4">高清实拍图</td>
+                                        <td class="px-5 py-4">铜版纸对裱</td>
+                                        <td class="px-5 py-4">烫色、镭射底、逆向UV</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                        <td class="px-5 py-4 font-medium">福境场景卡</td>
+                                        <td class="px-5 py-4">5</td>
+                                        <td class="px-5 py-4">极乐净土等有吉祥寓意的场景</td>
+                                        <td class="px-5 py-4">高清实拍图</td>
+                                        <td class="px-5 py-4">铜版纸对裱</td>
+                                        <td class="px-5 py-4">烫色</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 mt-8">差异化卖点</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="border-l-4 border-amber-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">迎合祈福需求</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">迎合年轻人祈福的心理需求。 </p>
+                            </div>
+                            <div class="border-l-4 border-amber-500 pl-4 py-2 bg-slate-50 dark:bg-slate-800 rounded-r-md">
+                                <h5 class="font-semibold">首个新年祈福IP</h5>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">首个敦煌ip新年祈福类卡牌。 </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="timeline">
+                    <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-8">项目时间周期</h2>
+                    <div class="bg-white dark:bg-slate-800/50 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+                        <div class="grid grid-cols-4 gap-4 text-sm font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700 pb-2 mb-4">
+                            <div class="col-span-1">任务</div>
+                            <div class="col-span-3">时间线</div>
+                        </div>
+                        <div class="space-y-5 text-sm">
+                            <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">方案策划</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="6月3日 - 6月16日 (14天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 0%; width: 15.2%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">设计</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="6月17日 - 7月7日 (21天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 15.2%; width: 22.8%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">设计审核</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="7月8日 - 7月21日 (14天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 38%; width: 15.2%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">打样</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="7月22日 - 8月4日 (14天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 53.2%; width: 15.2%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">打样审核</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="8月5日 - 8月18日 (14天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 68.4%; width: 15.2%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">生产制作</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="8月19日 - 9月1日 (14天)">
+                                        <div class="bg-sky-500 h-6 rounded-full" style="margin-left: 83.6%; width: 15.2%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">线上资源制作</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="8月27日 - 8月29日 (3天)">
+                                        <div class="bg-violet-500 h-6 rounded-full" style="margin-left: 91.3%; width: 3.3%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">线上预告宣发</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="8月30日 - 9月1日 (3天)">
+                                        <div class="bg-violet-500 h-6 rounded-full" style="margin-left: 94.6%; width: 3.3%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-4 gap-4 items-center">
+                                <div class="font-medium text-slate-800 dark:text-slate-100">大货销售</div>
+                                <div class="col-span-3">
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-6 relative flex items-center" title="9月2日 (1天)">
+                                        <div class="bg-green-500 h-6 rounded-full" style="margin-left: 98.9%; width: 1.1%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 pt-2">
+                            <span>起始: 2025-06-03</span>
+                            <span>结束: 2025-09-02</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="financials">
+                     <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">预估流水与利润</h2>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-green-500/10 dark:bg-green-500/20 p-6 rounded-lg text-center transform transition hover:scale-105">
+                            <h3 class="text-lg font-medium text-green-800 dark:text-green-300">预估总流水</h3>
+                            <p class="text-4xl font-bold text-green-700 dark:text-green-200 mt-2">716,000 元  </p>
+                        </div>
+                        <div class="bg-sky-500/10 dark:bg-sky-500/20 p-6 rounded-lg text-center transform transition hover:scale-105">
+                             <h3 class="text-lg font-medium text-sky-800 dark:text-sky-300">预估总利润</h3>
+                            <p class="text-4xl font-bold text-sky-700 dark:text-sky-200 mt-2">492,800 元 </p>
+                        </div>
+                     </div>
+                     <p class="text-center text-sm text-slate-500 dark:text-slate-400 mb-8">基本前提：制作成本控制在20%，版权费10万。 </p>
+
+                     <div class="overflow-x-auto bg-white dark:bg-slate-800/50 rounded-lg shadow-md border border-slate-200 dark:border-slate-700">
+                        <table class="w-full text-sm text-left text-slate-600 dark:text-slate-300 custom-table">
+                            <thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-100 dark:bg-slate-800">
+                                <tr>
+                                    <th class="px-6 py-4">产品</th>
+                                    <th class="px-6 py-4">预估销量</th>
+                                    <th class="px-6 py-4">预估售卖价格</th>
+                                    <th class="px-6 py-4">供货价格</th>
+                                </tr>
+                            </thead>
+                             <tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium">《敦煌：考古手札》（第一期）</td>
+                                    <td class="px-6 py-4">1500</td>
+                                    <td class="px-6 py-4">199元</td>
+                                    <td class="px-6 py-4">119.4元</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium">《敦煌：考古手札》（第二期）</td>
+                                    <td class="px-6 py-4">1500</td>
+                                    <td class="px-6 py-4">199元</td>
+                                    <td class="px-6 py-4">119.4元</td>
+                                </tr>
+                                 <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                    <td class="px-6 py-4 font-medium">《敦煌：瑞光迎岁（新年收藏版）》</td>
+                                    <td class="px-6 py-4">500</td>
+                                    <td class="px-6 py-4">238元</td>
+                                    <td class="px-6 py-4">142.8元</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                     </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="bg-slate-100 dark:bg-slate-950/50 border-t border-slate-200 dark:border-slate-800 mt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="text-center text-slate-600 dark:text-slate-400 space-y-2">
+                    <div class="font-bold text-lg text-slate-900 dark:text-white">作者姓名: 陈玄音</div>
+                    <p class="flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-envelope w-4"></i>
+                        <span>651370379@qq.com</span>
+                    </p>
+                    <p class="flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-phone w-4"></i>
+                        <span>17600902423</span>
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-500 pt-2">&copy; 2025 Gemini Solutions. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // IIFE to encapsulate theme switching logic
+        (function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const lightIcon = document.getElementById('theme-icon-light');
+            const darkIcon = document.getElementById('theme-icon-dark');
+
+            // Function to apply theme
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    lightIcon.style.display = 'block';
+                    darkIcon.style.display = 'none';
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    lightIcon.style.display = 'none';
+                    darkIcon.style.display = 'block';
+                }
+            };
+
+            // Check for saved theme in localStorage, or use system preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+            
+            applyTheme(initialTheme);
+
+            // Add click event listener to the toggle button
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                const newTheme = isDark ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
+            
+            // Fade in the main container on load
+            document.addEventListener('DOMContentLoaded', () => {
+                 document.getElementById('app-container').style.opacity = '1';
+            });
+        })();
+    </script>
+</body>
+</html>
